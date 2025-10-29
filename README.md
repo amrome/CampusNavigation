@@ -22,7 +22,7 @@ A modern web-based application built with React and Vite that helps students, fa
 ## 📦 Project Structure
 
 ```
-my-vite-app/
+CampusNavigation/
 ├── public/                 # Static assets
 │   ├── logo.png           # Campus logo
 │   ├── hero-bg.jpg        # Hero background
@@ -56,10 +56,10 @@ my-vite-app/
 
 ### Installation
 
-1. Navigate to the project folder:
+1. Clone or navigate to the project folder:
 
    ```powershell
-   cd my-vite-app
+   cd CampusNavigation
    ```
 
 2. Install dependencies:

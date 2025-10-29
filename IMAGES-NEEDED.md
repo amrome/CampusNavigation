@@ -5,16 +5,19 @@
 Please provide the following images and place them in the `public/` folder:
 
 ### 🏢 Building Photos (4 images)
+
 1. **main-building.jpg** - Photo of the Main Building
 2. **library-gym.jpg** - Photo of the Library & Gym facility
 3. **tuwaiq-building.jpg** - Photo of Tuwaiq Building
 4. **najd-building.jpg** - Photo of Najd Building
 
 ### 🎨 Background Images (2 images)
+
 5. **hero-bg.jpg** - Hero section background (campus overview/landscape)
 6. **search-bg.jpg** - Search pages background (modern office/campus interior recommended)
 
 ### 🚪 Room Photos (6 images)
+
 7. **room-1.jpg** - Room G211 or any classroom
 8. **room-2.jpg** - Another classroom/room
 9. **room-3.jpg** - Another classroom/room
@@ -23,6 +26,7 @@ Please provide the following images and place them in the `public/` folder:
 12. **room-6.jpg** - Another classroom/room
 
 ### 🎯 Logo (1 image)
+
 13. **logo.png** - Your campus/university logo (transparent background PNG recommended)
 
 ---
@@ -30,6 +34,7 @@ Please provide the following images and place them in the `public/` folder:
 ## 📋 Image Specifications
 
 ### Recommended Sizes:
+
 - **Building photos**: 800x600px or higher
 - **Hero background**: 1920x1080px (Full HD)
 - **Search background**: 1920x1080px
@@ -37,10 +42,12 @@ Please provide the following images and place them in the `public/` folder:
 - **Logo**: 200x50px (or maintain aspect ratio)
 
 ### File Format:
+
 - Buildings/Rooms/Backgrounds: JPG (optimized for web, under 500KB each)
 - Logo: PNG with transparent background
 
 ### Quality:
+
 - Use high-quality photos
 - Optimize for web (compress without losing quality)
 - Ensure good lighting and clear visibility
@@ -51,8 +58,9 @@ Please provide the following images and place them in the `public/` folder:
 
 1. Save all images with the exact file names listed above
 2. Place them in the `public/` folder of the project:
+
    ```
-   my-vite-app/
+   CampusNavigation/
    └── public/
        ├── logo.png
        ├── hero-bg.jpg
@@ -90,8 +98,8 @@ Once you provide the images, the website will be 100% complete!
   - Your phone camera (make sure it's well-lit)
   - Stock photos temporarily (replace later)
   - Screenshots from Google Maps for building exteriors
-  
 - For the logo, if you don't have a PNG:
+
   - I can help convert it
   - Or we can use text temporarily
 

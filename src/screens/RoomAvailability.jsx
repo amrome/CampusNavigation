@@ -1,4 +1,3 @@
-import React from "react";
 import "../App.css";
 import Header from "../components/Header";
 
@@ -16,28 +15,28 @@ export default function RoomAvailability() {
     {
       id: "room2",
       name: "Room 2",
-      available: false,
+      available: true,
       image: "/room-2.jpg",
       description: "Description of third product",
     },
     {
       id: "room3",
       name: "Room 3",
-      available: false,
+      available: true,
       image: "/room-3.jpg",
       description: "Description of fourth product",
     },
     {
       id: "room4",
       name: "Room 4",
-      available: false,
+      available: true,
       image: "/room-4.jpg",
       description: "Description of fifth product",
     },
     {
       id: "room5",
       name: "Room 5",
-      available: false,
+      available: true,
       image: "/room-5.jpg",
       description: "Description of sixth product",
     },

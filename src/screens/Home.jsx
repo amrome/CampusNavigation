@@ -1,4 +1,3 @@
-import React from "react";
 import "../App.css";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
@@ -99,7 +98,7 @@ export default function Home() {
           <span>Logo</span>
         </div>
         <h3>Made with &lt;3</h3>
-        <p>Abdullah Meraj, Ruqaya Siddiq, Amro Elian</p>
+        <p>Amro Elian , Ruqaya Siddiq , Abdullah Meraj </p>
         <p>gdsc@yu.edu.sa</p>
         <p>Al Qassim Highway,</p>
         <p>Riyadh Region 11512</p>
