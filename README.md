@@ -57,16 +57,19 @@ my-vite-app/
 ### Installation
 
 1. Navigate to the project folder:
+
    ```powershell
    cd my-vite-app
    ```
 
 2. Install dependencies:
+
    ```powershell
    npm install
    ```
 
 3. Start the development server:
+
    ```powershell
    npm run dev
    ```
@@ -78,6 +81,7 @@ my-vite-app/
 Place your campus images in the `public/` folder with these names:
 
 ### Required Images:
+
 - `logo.png` - Campus logo (200x50px recommended)
 - `hero-bg.jpg` - Hero section background (1920x1080px)
 - `search-bg.jpg` - Search pages background (1920x1080px)
@@ -92,9 +96,11 @@ See `public/README-IMAGES.md` for more details.
 ## 📝 Customizing Content
 
 ### Update Building Information (Home.jsx)
+
 Edit building descriptions in `src/screens/Home.jsx`
 
 ### Update Instructor Data (SearchRoom.jsx)
+
 Modify the `instructorRooms` array in `src/screens/SearchRoom.jsx`:
 
 ```javascript
@@ -107,13 +113,14 @@ const instructorRooms = [
     roomNumber: "Room Number",
     officeHours: "Days: Time",
     nearestLandmark: "Landmark",
-    accessType: "Access Type"
+    accessType: "Access Type",
   },
   // Add more instructors...
 ];
 ```
 
 ### Update Room Availability (RoomAvailability.jsx)
+
 Modify the `availableRooms` array in `src/screens/RoomAvailability.jsx`
 
 ## 🎯 Available Scripts
@@ -135,11 +142,13 @@ This creates an optimized build in the `dist/` folder.
 ### Deploy Options
 
 1. **Vercel** (Recommended)
+
    - Connect your GitHub repo to Vercel
    - Build command: `npm run build`
    - Output directory: `dist`
 
 2. **Netlify**
+
    - Connect repo via Git
    - Build command: `npm run build`
    - Publish directory: `dist`
@@ -168,13 +177,16 @@ Location: Al Qassim Highway, Riyadh Region 11512
 ## 🔧 Troubleshooting
 
 ### Port Already in Use
+
 Vite will automatically use the next available port (5174, 5175, etc.)
 
 ### Images Not Loading
+
 - Ensure images are in the `public/` folder
 - Check file names match exactly (case-sensitive)
 
 ### Routing Issues
+
 - Use React Router's `<Link>` component, not `<a>` tags
 - Verify all routes are defined in `App.jsx`
 
@@ -191,4 +203,3 @@ Vite will automatically use the next available port (5174, 5175, etc.)
 ---
 
 Made with ❤️ by the Campus Navigation Team
-
