@@ -1,0 +1,606 @@
+/* ===== RESET & GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+}
+
+.header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff8c42;
+}
+
+/* ===== HOME PAGE ===== */
+.home-page {
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.hero-section {
+  position: relative;
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/hero-bg.jpg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* ===== ACTION BUTTONS / NAVIGATION ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-search-room {
+  background-color: #ff8c42;
+  color: #000;
+}
+
+.btn-search-room:hover {
+  background-color: #ff7028;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+}
+
+.btn-search-office {
+  background-color: #ff8c42;
+  color: #000;
+}
+
+.btn-search-office:hover {
+  background-color: #ff7028;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+}
+
+.btn-room-availability {
+  background-color: #ff8c42;
+  color: #000;
+}
+
+.btn-room-availability:hover {
+  background-color: #ff7028;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+}
+
+/* ===== GENERAL INFORMATION SECTION ===== */
+.general-info {
+  padding: 4rem 3rem;
+  background-color: #000;
+}
+
+.general-info h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ff8c42;
+}
+
+.building-cards {
+  display: grid;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.building-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 12px;
+  min-height: 300px;
+}
+
+.building-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.building-card p {
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.building-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.building-main {
+  background: linear-gradient(135deg, #1a5f3a 0%, #2d8f5e 100%);
+}
+
+.building-library {
+  background: linear-gradient(135deg, #8b1a1a 0%, #c92a2a 100%);
+}
+
+.building-tuwaiq {
+  background: linear-gradient(135deg, #1a3a8b 0%, #2a5ac9 100%);
+}
+
+.building-najd {
+  background: linear-gradient(135deg, #8b6a1a 0%, #c99a2a 100%);
+}
+
+.subheading {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: #0a0a0a;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: 1rem;
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  color: #999;
+  margin: 0.3rem 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ===== SEARCH PAGES ===== */
+.search-section {
+  position: relative;
+  min-height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/search-bg.jpg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.search-hero {
+  text-align: center;
+  max-width: 700px;
+}
+
+.search-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ff8c42;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #ff8c42;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-button:hover {
+  background-color: #ff7028;
+  transform: translateY(-2px);
+}
+
+/* ===== SEARCH RESULTS ===== */
+.search-results {
+  padding: 3rem 2rem;
+  background-color: #0a0a0a;
+}
+
+.search-results h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ff8c42;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.room-result-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.room-result-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff8c42;
+  box-shadow: 0 8px 25px rgba(255, 140, 66, 0.3);
+}
+
+.room-result-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #ff8c42;
+}
+
+.room-result-card p {
+  margin: 0.5rem 0;
+  color: #ddd;
+}
+
+/* ===== BUILDING DETAILS CARD (Modal) ===== */
+.building-details-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  min-width: 400px;
+  max-width: 600px;
+  border: 2px solid #ff8c42;
+}
+
+.building-details-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ff8c42;
+}
+
+.building-details-card .details p {
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: #ff8c42;
+}
+
+/* ===== OFFICE DETAILS CARD ===== */
+.office-details-card {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  padding: 2.5rem;
+  margin: 3rem auto;
+  border-radius: 16px;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(255, 140, 66, 0.4);
+}
+
+.office-details-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.office-info p {
+  margin: 0.8rem 0;
+  color: #000;
+  font-size: 1.1rem;
+}
+
+.office-info strong {
+  font-weight: 700;
+}
+
+/* ===== ROOM AVAILABILITY PAGE ===== */
+.room-availability-page {
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.availability-content {
+  padding: 3rem 2rem;
+}
+
+.availability-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.room-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.room-card.available {
+  border: 3px solid #2ecc71;
+}
+
+.room-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.availability-badge {
+  background-color: #2ecc71;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+}
+
+.availability-badge p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.availability-badge h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.room-description {
+  padding: 1rem;
+  color: #ddd;
+  text-align: center;
+}
+
+.timetable-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #0a0a0a;
+  margin-top: 2rem;
+}
+
+.timetable-section h2 {
+  font-size: 2rem;
+  color: #ff8c42;
+}
+
+/* ===== BUILDING SELECTOR (if needed) ===== */
+.building-selector {
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.building-card-interactive {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+}
+
+.building-card-interactive:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 140, 66, 0.5);
+}
+
+.building-card-interactive h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.building-card-interactive p {
+  color: #222;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .building-card {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .building-details-card {
+    min-width: 90%;
+    padding: 2rem;
+  }
+
+  .results-grid,
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+}
