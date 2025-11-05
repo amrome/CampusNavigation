@@ -4,41 +4,21 @@ export default function Footer() {
       <div className="footer-divider"></div>
 
       <div className="footer-logo">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 120 60"
-          className="gdsc-logo"
+        <a
+          href="https://gdg.community.dev/gdg-on-campus-al-yamamah-university-riyadh-saudi-arabia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GDG on Campus - Al Yamamah University"
         >
-          {/* Blue part */}
-          <path
-            d="M 20 15 Q 20 5 30 5 L 45 5 Q 50 5 50 10 L 50 25 Q 50 30 45 30 L 35 30"
-            fill="#4285F4"
-            stroke="none"
-          />
-          {/* Red part */}
-          <path
-            d="M 50 10 Q 50 5 55 5 L 70 5 Q 75 5 75 10 L 75 20 Q 75 25 70 25 L 50 25"
-            fill="#EA4335"
-            stroke="none"
-          />
-          {/* Yellow part */}
-          <path
-            d="M 75 30 L 90 30 Q 95 30 95 35 L 95 50 Q 95 55 90 55 L 75 55 Q 70 55 70 50 L 70 35"
-            fill="#FBBC04"
-            stroke="none"
-          />
-          {/* Green part */}
-          <path
-            d="M 50 35 L 65 35 Q 70 35 70 40 L 70 50 Q 70 55 65 55 L 50 55 Q 45 55 45 50 L 45 40 Q 45 35 50 35"
-            fill="#34A853"
-            stroke="none"
-          />
-        </svg>
+          <img src="/thelogo3.png" alt="GDG Logo" className="gdsc-logo" />
+        </a>
       </div>
 
       <h3 className="footer-title">Made with &lt;3</h3>
 
-      <p className="footer-names">Abdullah Meraj, Ruqaya Siddiq, Amro Elian</p>
+      <p className="footer-names">
+        Amro Elian , Abdullah Meraj , Ruqaya Siddiq
+      </p>
 
       <p className="footer-email">gdsc@u.edu.sa</p>
 
@@ -48,16 +28,28 @@ export default function Footer() {
       </div>
 
       <div className="social-links">
-        <a href="#" aria-label="Facebook" className="social-icon">
+        <a
+          href="https://x.com/gdg_yu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X (Twitter)"
+          className="social-icon"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </a>
-        <a href="#" aria-label="LinkedIn" className="social-icon">
+        <a
+          href="https://www.linkedin.com/company/gdg-yu/posts/?feedView=all"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="social-icon"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -66,16 +58,28 @@ export default function Footer() {
             <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
           </svg>
         </a>
-        <a href="#" aria-label="YouTube" className="social-icon">
+        <a
+          href="https://www.tiktok.com/@yu.gdg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="social-icon"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
-            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
           </svg>
         </a>
-        <a href="#" aria-label="Instagram" className="social-icon">
+        <a
+          href="https://www.instagram.com/yu.gdg/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="social-icon"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
