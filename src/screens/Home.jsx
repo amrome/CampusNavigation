@@ -1,6 +1,7 @@
 import "../App.css";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -92,18 +93,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-logo">
-          {/* Add logo */}
-          <span>Logo</span>
-        </div>
-        <h3>Made with &lt;3</h3>
-        <p>Amro Elian , Ruqaya Siddiq , Abdullah Meraj </p>
-        <p>gdsc@yu.edu.sa</p>
-        <p>Al Qassim Highway,</p>
-        <p>Riyadh Region 11512</p>
-        <div className="social-links">{/* Add social icons */}</div>
-      </footer>
+      <Footer />
     </div>
   );
 }
