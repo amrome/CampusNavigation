@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import "../App.css";
 import Header from "../components/Header";
 
@@ -6,6 +7,10 @@ export default function SearchRoom() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const searchFormRef = useRef(null);
 
   // Dummy instructor/room data
   const instructorRooms = [
@@ -51,6 +56,45 @@ export default function SearchRoom() {
     },
   ];
 
+  // GSAP Animations
+  useEffect(() => {
+    gsap.fromTo(
+      titleRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+    );
+
+    gsap.fromTo(
+      subtitleRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, delay: 0.3, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      searchFormRef.current,
+      { opacity: 0, scale: 0.9 },
+      { opacity: 1, scale: 1, duration: 0.8, delay: 0.5, ease: "back.out(1.5)" }
+    );
+  }, []);
+
+  // Animate search results
+  useEffect(() => {
+    if (searchResults.length > 0) {
+      gsap.fromTo(
+        ".room-result-card",
+        { opacity: 0, y: 30, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [searchResults]);
+
   // Handle search
   const handleSearch = (e) => {
     e.preventDefault();
@@ -77,10 +121,16 @@ export default function SearchRoom() {
       {/* Search Section */}
       <section className="search-section">
         <div className="search-hero">
-          <h1>Finding a Room?</h1>
-          <p>Search for instructor offices by name, room number, or building</p>
+          <h1 ref={titleRef}>Finding a Room?</h1>
+          <p ref={subtitleRef}>
+            Search for instructor offices by name, room number, or building
+          </p>
 
-          <form onSubmit={handleSearch} className="search-form">
+          <form
+            onSubmit={handleSearch}
+            className="search-form"
+            ref={searchFormRef}
+          >
             <input
               type="text"
               placeholder="Search for instructor or room..."

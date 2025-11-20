@@ -1,8 +1,13 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../App.css";
 import Header from "../components/Header";
 import { rooms } from "../data/rooms";
 import { corners, getDays } from "../data/data";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 export default function RoomAvailability() {
   const [selectedBuilding, setSelectedBuilding] = useState("ALL");
@@ -11,10 +16,30 @@ export default function RoomAvailability() {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
 
-  // Prevent body scroll when modal is open
+  // Refs for GSAP animations
+  const pageTitleRef = useRef(null);
+  const pageSubtitleRef = useRef(null);
+  const statsRef = useRef([]);
+  const filtersRef = useRef(null);
+  const roomCardsRef = useRef([]);
+
+  // Prevent body scroll when modal is open & animate modal
   useEffect(() => {
     if (selectedRoom) {
       document.body.style.overflow = "hidden";
+
+      // Animate modal entrance
+      gsap.fromTo(
+        ".modal-overlay",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power2.out" }
+      );
+
+      gsap.fromTo(
+        ".modal-content",
+        { scale: 0.8, opacity: 0, y: 50 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
+      );
     } else {
       document.body.style.overflow = "unset";
     }
@@ -24,6 +49,61 @@ export default function RoomAvailability() {
       document.body.style.overflow = "unset";
     };
   }, [selectedRoom]);
+
+  // Keyboard navigation - ESC to close modal
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === "Escape" && selectedRoom) {
+        setSelectedRoom(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscKey);
+    return () => window.removeEventListener("keydown", handleEscKey);
+  }, [selectedRoom]);
+
+  // GSAP Animations
+  useEffect(() => {
+    // Page header animations
+    gsap.fromTo(
+      pageTitleRef.current,
+      { opacity: 0, y: -50, scale: 0.9 },
+      { opacity: 1, y: 0, scale: 1, duration: 1, ease: "back.out(1.7)" }
+    );
+
+    gsap.fromTo(
+      pageSubtitleRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, delay: 0.3, ease: "power2.out" }
+    );
+
+    // Stats cards stagger animation
+    gsap.fromTo(
+      statsRef.current,
+      { opacity: 0, y: 50, scale: 0.8 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        delay: 0.5,
+        ease: "back.out(1.5)",
+      }
+    );
+
+    // Filters fade in
+    gsap.fromTo(
+      filtersRef.current,
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, duration: 0.8, delay: 0.8, ease: "power2.out" }
+    );
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   // Get current time and day
   const now = new Date();
@@ -125,6 +205,24 @@ export default function RoomAvailability() {
     return filtered.slice(0, 20); // Limit to 20 rooms for performance
   }, [selectedBuilding, searchTime, searchDay, showAvailableOnly]);
 
+  // Animate room cards when filteredRooms changes
+  useEffect(() => {
+    if (roomCardsRef.current.length > 0) {
+      gsap.fromTo(
+        roomCardsRef.current,
+        { opacity: 0, y: 30, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [filteredRooms]);
+
   // Get available now count
   const availableNowCount = Object.values(rooms).filter((room) =>
     isRoomFreeNow(room)
@@ -136,29 +234,40 @@ export default function RoomAvailability() {
 
       <div className="availability-content">
         <div className="page-header">
-          <h1 className="page-title">Find Your Perfect Room</h1>
-          <p className="page-subtitle">
+          <h1 className="page-title" ref={pageTitleRef}>
+            Find Your Perfect Room
+          </h1>
+          <p className="page-subtitle" ref={pageSubtitleRef}>
             Search across {Object.keys(rooms).length} rooms in real-time
           </p>
         </div>
 
         {/* Stats */}
         <div className="availability-stats">
-          <div className="stat-card available-stat">
+          <div
+            className="stat-card available-stat"
+            ref={(el) => (statsRef.current[0] = el)}
+          >
             <div className="stat-icon">🟢</div>
             <div className="stat-info">
               <h3>{availableNowCount}</h3>
               <p>Available Now</p>
             </div>
           </div>
-          <div className="stat-card total-stat">
+          <div
+            className="stat-card total-stat"
+            ref={(el) => (statsRef.current[1] = el)}
+          >
             <div className="stat-icon">🏢</div>
             <div className="stat-info">
               <h3>{Object.keys(rooms).length}</h3>
               <p>Total Rooms</p>
             </div>
           </div>
-          <div className="stat-card results-stat">
+          <div
+            className="stat-card results-stat"
+            ref={(el) => (statsRef.current[2] = el)}
+          >
             <div className="stat-icon">🔍</div>
             <div className="stat-info">
               <h3>{filteredRooms.length}</h3>
@@ -168,7 +277,7 @@ export default function RoomAvailability() {
         </div>
 
         {/* Search Filters */}
-        <div className="search-filters-modern">
+        <div className="search-filters-modern" ref={filtersRef}>
           {/* Building Filter */}
           <div className="filter-section">
             <h3 className="filter-title">📍 Filter by Building</h3>
@@ -245,7 +354,7 @@ export default function RoomAvailability() {
 
         {/* Room Grid */}
         <div className="rooms-grid-modern">
-          {filteredRooms.map((room) => {
+          {filteredRooms.map((room, index) => {
             // Check if we're searching for a specific time
             let isFree, displayText;
 
@@ -272,6 +381,7 @@ export default function RoomAvailability() {
             return (
               <div
                 key={room.name}
+                ref={(el) => (roomCardsRef.current[index] = el)}
                 className={`room-card-modern ${
                   isFree ? "available-modern" : "unavailable-modern"
                 }`}
@@ -326,15 +436,23 @@ export default function RoomAvailability() {
 
       {/* Room Schedule Modal */}
       {selectedRoom && (
-        <div className="modal-overlay" onClick={() => setSelectedRoom(null)}>
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedRoom(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-modal"
               onClick={() => setSelectedRoom(null)}
+              aria-label="Close schedule modal"
+              title="Press ESC to close"
             >
               ×
             </button>
-            <h2>{selectedRoom.name} - Weekly Schedule</h2>
+            <h2 id="modal-title">{selectedRoom.name} - Weekly Schedule</h2>
             <div className="schedule-grid">
               {getDays(selectedRoom).map(({ day, timeSlots }) => (
                 <div key={day} className="day-schedule">
